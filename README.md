@@ -20,6 +20,3 @@ This repository contains a basic [Observable Framework](https://observablehq.com
 
 Content lives in the `content/` directory. Edit `observablehq.config.js` to customize site settings.
 
-## Continuous Deployment
-
-This repository includes a GitHub Actions workflow to deploy the site to [Cloudflare Pages](https://pages.cloudflare.com/). The workflow runs on every push to `main` and uses secrets `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` for authentication.
