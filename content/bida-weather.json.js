@@ -1,0 +1,10 @@
+import {events, station, weatherRange} from "./bida-weather.js";
+const evts = await events();
+const stn = await station();
+const start = evts[0].date;
+const end = evts.reduce((m, e) => (e.date > m ? e.date : m), start);
+const today = new Date().toISOString().slice(0, 10);
+const rangeEnd = end > today ? today : end;
+const wxMap = await weatherRange(start, rangeEnd, stn.latitude, stn.longitude);
+const rows = evts.map(e => ({ ...e, ...(wxMap[e.date] || {}) }));
+process.stdout.write(JSON.stringify(rows));
