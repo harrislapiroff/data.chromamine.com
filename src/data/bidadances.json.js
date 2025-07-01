@@ -187,6 +187,6 @@ async function fetchBidaDances() {
   }
 }
 
-const data = await fetchBidaDances()
-
-process.stdout.write(JSON.stringify(data))
+export default async function () {
+  return await fetchBidaDances()
+}
